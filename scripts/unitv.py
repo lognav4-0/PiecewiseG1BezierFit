@@ -22,8 +22,8 @@ def unitv(Q, k):
             k_aux[j] = k_aux[j] - 3
             kt = 2
 
-        x = np.mat((Q[0, k_aux[j]:k_aux[j] + 5])).T
-        y = np.mat((Q[1, k_aux[j]:k_aux[j] + 5])).T
+        x = np.asmatrix((Q[0, k_aux[j]:k_aux[j] + 5])).T
+        y = np.asmatrix((Q[1, k_aux[j]:k_aux[j] + 5])).T
 
         xd = np.diff(x,axis=0)
         yd = np.diff(y,axis=0)

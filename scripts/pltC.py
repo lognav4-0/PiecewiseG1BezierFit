@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-
+import math
 def pltC(C, Q, P):
     s, t = C.shape
     x = np.arange(0, 1.025, 0.025) # Defines the interval for the polynomial.
@@ -21,4 +21,4 @@ def pltC(C, Q, P):
     return plt.gcf()
 
 def berny(n, i, t):
-    return (np.math.comb(n, i) * t**i * (1-t)**(n-i))
+    return (math.comb(n, i) * t**i * (1-t)**(n-i))

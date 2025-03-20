@@ -18,14 +18,14 @@ def BezierFitDemo():
 
     demo = 1
     k = None
-
+    C = None
     if demo == 1:
-        # C = np.array([[-1.72, -0.6],
-        #               [0.07, -1.41],
-        #               [0.41, -0.58],
-        #               [0.54, 0.57],
-        #               [1.45, 0.3],
-        #               [1.15, -0.49]])
+        C = np.array([[-1.72, -0.6],
+                       [0.07, -1.41],
+                       [0.41, -0.58],
+                       [0.54, 0.57],
+                       [1.45, 0.3],
+                      [1.15, -0.49]])
         # Generate a cubic Bézier polyline data with these control points
 
         # # C = np.array([[-1.72690252, -0.60320651],
@@ -35,7 +35,7 @@ def BezierFitDemo():
         #                 [ 0.42636188, -1.28318058],
         #                 [ 0.51036741, -0.06590962],
         #                 [ 0.39913502,  0.45092671]])
-        # # Q = cubicBezierToPolyline(C, 65)
+        Q = cubicBezierToPolyline(C, 65)
 
         # To test with more points
 
