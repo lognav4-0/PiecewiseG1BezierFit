@@ -1,11 +1,11 @@
 import numpy as np
 
-def carregar_pontos_de_arquivo(file):
+def load_points_of_file(file):
     # Carrega os dados do arquivo de texto
     Q = np.loadtxt(file, delimiter=',')
     return Q
 
-def automaticknots(Q, space_between_knots = 1.0):  
+def automaticKnots(Q, space_between_knots = 1.0):  
     points_num = len(Q)  # Número de pontos (linhas da matriz)
     total_distance = 0   # Começa em 0 porque ainda não foi percorrida
 
@@ -17,6 +17,6 @@ def automaticknots(Q, space_between_knots = 1.0):
     # Calcula o número de nós baseado na distância total
     n = int(total_distance / space_between_knots)
     
-    print("Número de nós calculado:", n)
+    
     return n
 
