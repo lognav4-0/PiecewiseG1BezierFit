@@ -10,13 +10,13 @@ from distEJL import distEJL
 from automaticknots import automaticknots
 
 
-def iguess0(Q, espaco_entre_knots):
+def iguess0(Q, space_between_knots):
     r, m = Q.shape
 
     # Q = datapoints (2xm)
     # n = The number of knotpoints
     # k = default knot positions (indices 1...m)
-    n = automaticknots(Q, espaco_entre_knots)  # Agora 'n' é calculado automaticamente
+    n = automaticknots(Q, space_between_knots)  # Agora 'n' é calculado automaticamente
     k = np.linspace(0, m - 1, n, dtype=int)  # Distribuir 'n' nós ao longo dos índices de Q
       # Guardar a posição dos pontos dos nós
     dpkpc = k  # Position of knot points passed globally.
@@ -36,7 +36,7 @@ def iguess0(Q, espaco_entre_knots):
     # Removendo os pontos comuns
     # Removendo o primeiro e último ponto
     ctrl_pts = np.array(unique_control)
-    print("ctrl_pts =", ctrl_pts)
+    
 
     pltC(C, Q, P)  # Call to plot the initial guess curve, its control polygon, and points in Q.
     plt.gcf()
