@@ -16,17 +16,15 @@ def iguess0(Q, space_between_knots):
     # Q = datapoints (2xm)
     # n = The number of knotpoints
     # k = default knot positions (indices 1...m)
-    n = automaticKnots(Q, space_between_knots)  # Agora 'n' é calculado automaticamente
-    k = np.linspace(0, m - 1, n, dtype=int)  # Distribuir 'n' nós ao longo dos índices de Q
-      # Guardar a posição dos pontos dos nós
+    n = automaticKnots(Q, space_between_knots)  # Now 'n' is calculated automatically
+    k = np.linspace(0, m - 1, n, dtype=int)  # Distribute 'n' nodes along the indices of Q
     dpkpc = k  # Position of knot points passed globally.
     P = knots(Q, k)  # call to compute the knotpoints.
-    print("Knots: ", P.T)
     dt = distEJL(P, n)  # Call to compute the distance between successive knot points.
     ang = tang(Q, k)  # Call to compute the angles for the unit tangent vectors.
     C = ctpts(P, ang, dt)  # Call to compute the control points for the curve.
     CT = C.T
-    print("Control: ", CT)
+    
 
     unique_control = CT[~np.isin(CT, P).all(axis=1)]
 
