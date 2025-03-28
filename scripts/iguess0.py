@@ -7,7 +7,7 @@ from tang import tang
 from ctpts import ctpts
 from knots import knots
 from distEJL import distEJL
-from automaticKnots import automaticKnots
+from automatic_knots import automatic_knots
 
 
 def iguess0(Q, space_between_knots):
@@ -16,7 +16,7 @@ def iguess0(Q, space_between_knots):
     # Q = datapoints (2xm)
     # n = The number of knotpoints
     # k = default knot positions (indices 1...m)
-    n = automaticKnots(Q, space_between_knots)  # Now 'n' is calculated automatically
+    n = automatic_knots(Q, space_between_knots)  # Now 'n' is calculated automatically
     k = np.linspace(0, m - 1, n, dtype=int)  # Distribute 'n' nodes along the indices of Q
     dpkpc = k  # Position of knot points passed globally.
     P = knots(Q, k)  # call to compute the knotpoints.

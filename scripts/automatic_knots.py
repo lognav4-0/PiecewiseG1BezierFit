@@ -5,7 +5,7 @@ def load_points_of_file(file):
     Q = np.loadtxt(file, delimiter=',')
     return Q
 
-def automaticKnots(Q, space_between_knots = 1.0):  
+def automatic_knots(Q, space_between_knots = 1.0):  
     points_num = len(Q)  # Points number (matrix rows)
     total_distance = 0   # It starts at 0 because it has not been traversed yet.
 
