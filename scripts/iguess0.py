@@ -11,7 +11,7 @@ from automatic_knots import automatic_knots
 
 
 
-def iguess0(Q, n, k):
+def iguess0(Q,k):
     r, m = Q.shape
     n = automatic_knots(Q)
     # Q = datapoints (2xm)
@@ -32,7 +32,6 @@ def iguess0(Q, n, k):
 
     # Keep the second and penultimate point
     ctrl_pts = np.concatenate((unique_control[1:2], unique_control[-2:-1]))
-    print("SSSSSS",ctrl_pts)
     # Removing commun points
     # Removing the first and last point
     ctrl_pts = np.array(unique_control)
