@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import numpy as np
 from iguess0 import iguess0
 
