@@ -1,15 +1,19 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+from pltC import pltC
 from defk import defk
 from tang import tang
 from ctpts import ctpts
 from knots import knots
 from distEJL import distEJL
+from automatic_knots import automatic_knots
 
-def iguess0(Q, n, k):
+
+
+def iguess0(Q,k):
     r, m = Q.shape
-
+    n = automatic_knots(Q)
     # Q = datapoints (2xm)
     # n = The number of knotpoints
     # k = default knot positions (indices 1...m)
@@ -23,16 +27,9 @@ def iguess0(Q, n, k):
     CT = C.T
 
     unique_control = CT[~np.isin(CT, P).all(axis=1)]
-
-    # Manter o segundo e penúltimo ponto
-    ctrl_pts = np.concatenate((unique_control[1:2], unique_control[-2:-1]))
-
-    # Removendo os pontos comuns
-    # Removendo o primeiro e último ponto
+    
+    # Removing commun points
+    # Removing the first and last point
     ctrl_pts = np.array(unique_control)
     return ctrl_pts
-
-    # pltC(C, Q, P)  # Call to plot the initial guess curve, its control polygon, and points in Q.
-    # plt.gcf()
-    # plt.title('Plot of Initial Guess curve')
-    # plt.show()
+    
