@@ -7,6 +7,10 @@ def unitv(Q, k):
     k_aux = deepcopy(k)
     r, m = Q.shape
     n  = len(k)
+
+    if m < 5:
+        raise ValueError(f"Need at least 5 path points to compute unit vectors, got {m}")
+
     uv = np.zeros((2, n))
     t = np.zeros((1, 5))
 
@@ -21,8 +25,16 @@ def unitv(Q, k):
             k_aux[j] = k_aux[j] - 3
             kt = 2
 
+        k_aux[j] = max(0, min(int(k_aux[j]), m - 5))
+
         x = np.asmatrix((Q[0, k_aux[j]:k_aux[j] + 5])).T
         y = np.asmatrix((Q[1, k_aux[j]:k_aux[j] + 5])).T
+
+        if x.shape[0] < 5 or y.shape[0] < 5:
+            raise ValueError(
+                f"Unable to build a 5-point tangent window at knot {j}; "
+                f"start={k_aux[j]}, points={m}"
+            )
 
         xd = np.diff(x,axis=0)
         yd = np.diff(y,axis=0)
